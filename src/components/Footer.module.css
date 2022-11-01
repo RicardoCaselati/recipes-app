@@ -1,0 +1,13 @@
+#global_footer {
+  background-color: #ff003c;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  bottom: 0;
+  padding: 12px;
+}
+
+#footerEachIcon {
+  color: #FABE28;
+  font-size: 35px;
+}

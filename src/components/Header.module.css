@@ -1,0 +1,20 @@
+#global_header {
+  background-color: #ff003c;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
+#title {
+  color: #FABE28;
+  font-family: 'Englebert', sans-serif;
+  font-size: 40px;
+  line-height: 0;
+  margin: 0;
+  padding: 33px 0;
+} 
+
+#icons {
+  color: #FABE28;
+  font-size: 40px;
+}

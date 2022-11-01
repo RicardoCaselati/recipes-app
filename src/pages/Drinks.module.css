@@ -1,0 +1,19 @@
+#categoryButtons{
+  position: fixed;
+  top: 67px;
+  background-color: whitesmoke;
+  width: 100%;
+  z-index: 9999;
+  padding: 5px 20px;
+}
+
+#drinkRender{
+  top: 141px;
+  padding-bottom: 72px;
+  position: absolute;
+}
+
+#eachBtn {
+  margin: 4px 0;
+  padding: 0 26px
+}

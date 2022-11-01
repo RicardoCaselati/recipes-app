@@ -1,0 +1,34 @@
+#grid {
+  background-color: #ff003c;
+  height: 100vh;
+}
+
+#btn {
+  background-color: #00c176;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.input::placeholder {
+  color: #ff003c;
+  font-weight: 500;
+}
+
+.input {
+    /* display: flex;
+    align-items: center; */
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ff003c;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}

@@ -1,0 +1,47 @@
+#recipeTitle {
+ font-family: 'Poppins', sans-serif;
+ font-weight: 600;
+ font-size: 50px;
+ color: #00C176;
+}
+
+#resetBtn{
+  background-color: rgba(252, 252, 252, 0);
+  border: none;
+}
+
+#sectionTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  color: #00C176;
+}
+
+#bodyDescription {
+  padding: 15px;
+  border-radius: 18px;
+  list-style-type: none;  
+  background-color: #00c17754;
+}
+
+#btn{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #00C176;
+  color: #212529;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+}
+
+#favoriteSubTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #00C176;
+}
+
+
+

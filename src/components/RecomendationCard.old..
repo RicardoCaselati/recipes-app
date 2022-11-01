@@ -1,0 +1,60 @@
+import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function RecomendationCard() {
+  const { pathname } = document.location;
+  const route = pathname.split(/\b/, 2).at(1);
+  const url = `https://www.the${
+    route === 'foods' ? 'cocktail' : 'meal'
+  }db.com/api/json/v1/1/search.php?s=`;
+
+  const [recipes, setRecipes] = useState('');
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setRecipes(
+        data[`${route === 'foods' ? 'drinks' : 'meals'}`],
+      ))
+      .catch((err) => console.error(`SOMETHING WENT WRONG 🤯🤯🤯: ${err}`));
+  }, [url, route]);
+
+  const renderCards = (recipesObj) => {
+    const SIX = 6;
+    const recommends = [];
+    recipesObj.forEach((rec, i) => { if (i < SIX) recommends.push(rec); });
+    const markup = (array) => array.map((el, i) => (
+      <figure
+        data-testid={ `${i}-recomendation-card` }
+        key={ `${el.idMeal}${i}` || `${el.idDrinks}${i}` }
+        className="card mx-auto"
+        style={ { width: '10rem' } }
+        id={ i > 1 ? 'hidden' : '' }
+      >
+        <img
+          className="card-img-top"
+          src={ el.strMealThumb || el.strDrinkThumb }
+          alt={ el.strMeal || el.strDrink }
+        />
+        <div className="card-body">
+          <p className="text-muted">{el.strCategory || el.strAlcoholic }</p>
+          <h4
+            className="card-title"
+            data-testid={ `${i}-recomendation-title` }
+          >
+            {el.strMeal || el.strDrink }
+          </h4>
+        </div>
+      </figure>
+    ));
+    return markup(recommends);
+  };
+
+  return (
+    <div className="d-flex flex-wrap justify-content-center mt-3">
+      { recipes && renderCards(recipes)}
+    </div>
+  );
+}
+
+export default RecomendationCard;

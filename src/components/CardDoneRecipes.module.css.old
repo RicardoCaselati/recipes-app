@@ -1,0 +1,12 @@
+#text{
+  color: #00C176;
+}
+
+#tag {
+  text-align: center;
+  color: #00C176;
+  background-color: #00c17737;
+  width: 57px;
+  border-radius: 12px;
+  padding: 2px;
+}

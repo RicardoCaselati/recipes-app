@@ -1,0 +1,125 @@
+import PropTypes from 'prop-types';
+import React from 'react';
+import clipboardCopy from 'clipboard-copy';
+import { Link } from 'react-router-dom';
+import styles from './CardDoneRecipes.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import shareIcon from '../images/shareIcon.svg';
+
+function CardDoneRecipes(props) {
+  const {
+    imagem,
+    name,
+    index,
+    tag,
+    category,
+    nacionalidade,
+    alcoholic,
+    type,
+    feitoEm,
+    id,
+  } = props;
+
+  const foodToRender = (
+    <p
+      id={ styles.text }
+      data-testid={ `${index}-horizontal-top-text` }
+    >
+      {`${nacionalidade} - ${category}`}
+    </p>
+  );
+
+  const drinkToRender = (
+    <p
+      id={ styles.text }
+      data-testid={ `${index}-horizontal-top-text` }
+    >
+      {alcoholic}
+    </p>
+  );
+
+  const handleClick = (foodId, tipo) => {
+    const url = tipo === 'food' ? `foods/${foodId}` : `drinks/${foodId}`;
+    clipboardCopy(`http://localhost:3000/${url}`);
+
+    const ONE_HALF_SEC = 1500;
+    document.querySelector('.link-copied')?.classList.toggle('hidden');
+    setTimeout(() => {
+      document.querySelector('.link-copied')?.classList.toggle('hidden');
+    }, ONE_HALF_SEC);
+  };
+
+  return (
+    <Link to={type === 'food' ? `/foods/${id}` : `/drinks/${id}`}>
+      <div className="card mb-3" style={{ maxWidth: '540px', top: '50px' }}>
+        <div className="row g-0">
+          <div className="col-4">
+            <img
+              className="img-fluid rounded-start"
+              src={ imagem }
+              alt={ name }
+              data-testid={ `${index}-horizontal-image` }
+            />
+          </div>
+          <div className="col-8">
+            <div className="card-body" style={ { backgroundColor: 'whitesmoke' } }>
+              <div className="d-flex justify-content-around">
+                {type === 'food' ? foodToRender : drinkToRender}
+                <div>
+                  <span
+                    id={styles.text}
+                    data-testid={`${index}-horizontal-share-btn`}
+                    onClick={() => handleClick(id, type)}
+                    className="material-symbols-outlined"
+                  >
+                    share
+                  </span>
+                  <p
+                    id={styles.text}
+                    className="hidden link-copied"
+                  >
+                    Link copied!
+                  </p>
+                </div>
+              </div>
+              <h5
+                id={styles.text}
+                className="card-title"
+                data-testid={`${index}-horizontal-name`}
+              >
+                {name}
+              </h5>
+              <p
+                className="text-muted"
+                data-testid={`${index}-horizontal-done-date`}
+              >
+                Done in:
+                {`${feitoEm}`}
+              </p>
+              <div className="d-flex">
+                {tag !== null && tag.map((eachTag) => (
+                  <p
+                    style={{ marginRight: '5px' }}
+                    id={styles.tag}
+                    key={eachTag}
+                    data-testid={`${index}-${eachTag}-horizontal-tag`}
+                  >
+                    {eachTag}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+CardDoneRecipes.propTypes = {
+  imagem: PropTypes.string,
+  name: PropTypes.string,
+  key: PropTypes.number,
+}.isRequired;
+
+export default CardDoneRecipes;

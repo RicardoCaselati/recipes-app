@@ -1,0 +1,27 @@
+#recipeDetailsTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  color: #00C176;
+}
+
+#recipeDetailsSubTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #00C176;
+}
+
+#sectionTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  color: #00C176;
+}
+
+#bodyDescription {
+  padding: 15px;
+  border-radius: 18px;
+  list-style-type: none;  
+  background-color: #00c17754;
+}
